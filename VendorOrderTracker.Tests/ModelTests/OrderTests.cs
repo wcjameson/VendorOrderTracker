@@ -56,9 +56,19 @@ namespace VendorOrderTracker.Tests
     public void GetId_OrdersInstantiateWithId_Int()
     {
       string orderName = "straws";
-      Order neworder = new order(orderName);
+      Order neworder = new Order(orderName);
       int result = neworder.Id;
       Assert.AreEqual(1, result);
+    }
+    [TestMethod]
+    public void Find_ReturnsCorrectOrder_Order()
+    {
+      string orderName1 = "bulk flour";
+      string orderName2 = "twenty bags of rice";
+      Order newOrder1 = new Order(orderName1);
+      Order newOrder2 = new Order(orderName2);
+      Order result = Order.Find(2);
+      AssemblyLoadEventArgs.AreEqual(newOrder2, result);
     }
   }
 }
