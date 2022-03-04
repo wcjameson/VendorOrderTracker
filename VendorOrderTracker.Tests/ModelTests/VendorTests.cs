@@ -47,7 +47,7 @@ namespace VendorOrderTracker.Tests
       CollectionAssert.AreEqual(newList, result);
     }
     [TestMethod]
-    public void Find_RetrunsCorrectVendor_Vendor()
+    public void Find_ReturnsCorrectVendor_Vendor()
     {
       string name1 = "super vendor";
       string name2 = "Costco again";
@@ -55,6 +55,18 @@ namespace VendorOrderTracker.Tests
       Vendor newVendor2 = new Vendor(name2);
       Vendor result = Vendor.Find(2);
       Assert.AreEqual(newVendor2, result);
+    }
+    [TestMethod]
+    public void AddOrder_AssociatesOrderWithVendor_OrderList()
+    {
+    string orderName = "Baked bread";
+    Order newOrder = new Order(orderName);
+    List<Order> newList = new List<Order> { newOrder };
+    string vendorName = "Costco";
+    Vendor newVendor = new Vendor(vendorName);
+    newVendor.AddOrder(newOrder);
+    List<Order> result = newVendor.Orders;
+    CollectionAssert.AreEqual(newList, result);
     }
   }
 }
