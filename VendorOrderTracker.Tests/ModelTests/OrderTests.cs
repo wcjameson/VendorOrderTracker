@@ -23,7 +23,9 @@ namespace VendorOrderTracker.Tests
     {
       string description = "test";
       Order newOrder1 = new Order(description);
+
       string result = newOrder1.Description;
+
       Assert.AreEqual(description, result);
     }
     [TestMethod]
@@ -33,14 +35,18 @@ namespace VendorOrderTracker.Tests
       Order newOrder2 = new Order(description);
       string updatedDescription = "a test string";
       newOrder2.Description = updatedDescription;
+
       string result = newOrder2.Description;
+
       Assert.AreEqual(updatedDescription, result);
     }
     [TestMethod]
     public void GetAll_ReturnsEmptyList_OrderList()
     {
       List<Order> newList = new List<Order> { };
+
       List<Order> result = Order.GetAll();
+
       CollectionAssert.AreEqual(newList, result);
     }
     [TestMethod]
@@ -49,7 +55,9 @@ namespace VendorOrderTracker.Tests
       Order newOrder1 = new Order("baked goods");
       Order newOrder2 = new Order("cups");
       List<Order> newList = new List<Order> { newOrder1, newOrder2 };
+
       List<Order> result = Order.GetAll();
+
       CollectionAssert.AreEqual(newList, result);
     }
     [TestMethod]
@@ -57,7 +65,9 @@ namespace VendorOrderTracker.Tests
     {
       string orderName = "straws";
       Order neworder = new Order(orderName);
+
       int result = neworder.Id;
+
       Assert.AreEqual(1, result);
     }
     [TestMethod]
@@ -67,7 +77,9 @@ namespace VendorOrderTracker.Tests
       string orderName2 = "twenty bags of rice";
       Order newOrder1 = new Order(orderName1);
       Order newOrder2 = new Order(orderName2);
+
       Order result = Order.Find(2);
+      
       Assert.AreEqual(newOrder2, result);
     }
   }
