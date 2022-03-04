@@ -68,7 +68,7 @@ namespace VendorOrderTracker.Tests
       Order newOrder1 = new Order(orderName1);
       Order newOrder2 = new Order(orderName2);
       Order result = Order.Find(2);
-      AssemblyLoadEventArgs.AreEqual(newOrder2, result);
+      Assert.AreEqual(newOrder2, result);
     }
   }
 }
